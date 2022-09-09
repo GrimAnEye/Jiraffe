@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <link rel="stylesheet" href="../css/bootstrap.css">
+   <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+
+   <div
+      class="card card-body d-none"
+      style="width: 18rem;"
+      id="auth_card">
+      <p
+         class="card-text chrome_i18n"
+         data-chrome_i18n="__MSG_popup_title_need_auth__"></p>
+      <div>
+         <a
+            class="btn btn-warning btn-sm d-none chrome_i18n"
+            id="authButton" href="#" role="button" target="_blank"
+            data-chrome_i18n="__MSG_popup_btn_auth__"></a>
+         <a
+            class="btn btn-info btn-sm chrome_i18n"
+            id="settingsButton"
+            data-chrome_i18n="__MSG_popup_btn_settings__"
+            target="_blank"></a>
+      </div>
+   </div>
+
+   <div
+      class="container-md"
+      id="renderContainer">
+
+      <!--Кнопки обновления задач и перехода в диспетчерскую-->
+      <button
+         type="button"
+         id="updateBtn"
+         class="btn btn-outline-info btn-sm chrome_i18n mt-2 m-b1"
+         data-chrome_i18n="__MSG_btn_update__"></button>
+      <a
+         id="dispatcherBtn"
+         target="_blank"
+         href="#"
+         class="btn btn-outline-secondary btn-sm chrome_i18n mt-2 m-b1 d-none"
+         data-chrome_i18n="__MSG_popup_btn_control_room__"></a>
+
+      <!--------Блок для проектов------------->
+      <div class="d-flex flex-wrap justify-content-center" id="queuesList"></div>
+   </div>
+
+   <!--Полоски для прокрутки при перетаскивании задач-->
+   <nav class="navbar fixed-top d-none scroll-line" id="scroll_top">
+   </nav>
+   <nav class="navbar fixed-bottom d-none scroll-line" id="scroll_bottom">
+   </nav>
+
+   <!--Контекстное меню кнопки-->
+   <div id="context_menu" class="context_menu">
+      <ul class="dropdown-menu show"></ul>
+   </div>
+
+   <script src="../js/bootstrap/bootstrap.bundle.js"></script>
+   <script src="../js/common.js" type="module"></script>
+   <script src="../js/popup.js" type="module"></script>
+</body>
+
+</html>

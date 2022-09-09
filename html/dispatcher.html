@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title
+      class="chrome_i18n"
+      data-chrome_i18n="__MSG_title_dispatcher__"></title>
+   <meta charset="utf-8" />
+   <link
+      rel="stylesheet"
+      href="../css/bootstrap.css">
+   <link
+      rel="stylesheet"
+      href="../css/common.css">
+</head>
+
+<body>
+
+   <nav class="navbar fixed-top navbar-light bg-light py-0">
+      <div class="container-sm">
+
+         <!--Переключатель дня-->
+         <div class="d-flex flex-row justify-content-center input-group my-1 mx-auto">
+            <button
+               type="button"
+               id="previousDay"
+               class="btn btn-outline-info btn-sm chrome_i18n"
+               data-chrome_i18n="__MSG_dispatcher_btn_previos_day__"></button>
+            <button
+               type="button"
+               id="currentDay"
+               class="btn btn-warning chrome_i18n"
+               data-chrome_i18n="__MSG_dispatcher_btn_curent_day__"></button>
+            <button
+               type="button"
+               id="nextDay"
+               class="btn btn-outline-info btn-sm chrome_i18n"
+               data-chrome_i18n="__MSG_dispatcher_btn_next_day__"></button>
+         </div>
+
+         <!--Фильтрация задач-->
+         <div class="d-flex flex-row justify-content-center my-1 mx-auto">
+            <div class="input-group" style="max-width: 650px;">
+               <input
+                  type="radio"
+                  class="btn-check"
+                  name="taskFilter"
+                  id="taskFilter_all"
+                  autocomplete="off"
+                  checked>
+               <label
+                  class="btn btn-outline-secondary btn-sm chrome_i18n"
+                  data-chrome_i18n="__MSG_dispatcher_btn_taskFilter_all__"
+                  for="taskFilter_all"></label>
+               <input
+                  type="radio"
+                  class="btn-check"
+                  name="taskFilter"
+                  id="taskFilter_today"
+                  autocomplete="off">
+               <label
+                  class="btn btn-outline-secondary btn-sm chrome_i18n"
+                  data-chrome_i18n="__MSG_dispatcher_btn_taskFilter_today__"
+                  for="taskFilter_today"></label>
+               <input
+                  type="date"
+                  id="taskFilter_date"
+                  class="form-control form-control-sm">
+               <button
+                  type="button"
+                  id="updateBtn"
+                  class="btn btn-sm btn-secondary chrome_i18n"
+                  data-chrome_i18n="__MSG_btn_update__"></button>
+            </div>
+         </div>
+      </div>
+
+   </nav>
+
+   <div class="container-fluid" style="margin-top: 90px;">
+      <!--------Блок для проектов------------->
+      <div id="projectsList" class="accordion"> </div>
+   </div>
+
+   <!--Полоски для прокрутки при перетаскивании задач-->
+   <nav class="navbar fixed-top d-none scroll-line" id="scroll_top">
+   </nav>
+   <nav class="navbar fixed-bottom d-none scroll-line" id="scroll_bottom">
+   </nav>
+
+   <!--Контекстное меню кнопки-->
+   <div id="context_menu" class="context_menu d-none">
+      <ul class="dropdown-menu show"></ul>
+   </div>
+
+   <script src="../js/bootstrap/bootstrap.bundle.js"></script>
+   <script src="../js/common.js" type="module"></script>
+   <script src="../js/dispatcher.js" type="module"></script>
+</body>
+
+</html>

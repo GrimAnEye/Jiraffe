@@ -1,0 +1,221 @@
+{
+    "btn_close": {
+        "message": "Close"
+    },
+    "btn_update": {
+        "message": "Upadate"
+    },
+    "color_blue": {
+        "message": "Blue"
+    },
+    "color_cyan": {
+        "message": "Cyan"
+    },
+    "color_dark": {
+        "message": "Dark"
+    },
+    "color_green": {
+        "message": "Green"
+    },
+    "color_grey": {
+        "message": "Grey"
+    },
+    "color_light": {
+        "message": "Light"
+    },
+    "color_red": {
+        "message": "Red"
+    },
+    "color_yellow": {
+        "message": "Yellow"
+    },
+    "context_menu_btn_appoint_at": {
+        "message": "Appoint at:"
+    },
+    "dispatcher_btn_curent_day": {
+        "message": "Curent day"
+    },
+    "dispatcher_btn_next_day": {
+        "message": "Next day"
+    },
+    "dispatcher_btn_previos_day": {
+        "message": "Previos day"
+    },
+    "dispatcher_btn_taskFilter_all": {
+        "message": "Show all until:"
+    },
+    "dispatcher_btn_taskFilter_today": {
+        "message": "Tasks for:"
+    },
+    "error_get_cookie": {
+        "message": "Error getting cookie. Relog in to Jira"
+    },
+    "need_auth": {
+        "message": "Pre-authorize in Jira"
+    },
+    "notificaton_title_issue_updated": {
+        "message": "Updated tasks in the queue:"
+    },
+    "notificaton_title_new_issue": {
+        "message": "New tasks in the queue:"
+    },
+    "plugin_description": {
+        "message": "Tool for distributing Jira issues by time and executors, displaying notifications about updates and new issues"
+    },
+    "plugin_name": {
+        "message": "Jiraffe. Tasks by time and performers"
+    },
+    "plugin_short_name": {
+        "message": "Jiraffe"
+    },
+    "popup_btn_auth": {
+        "message": "Login"
+    },
+    "popup_btn_control_room": {
+        "message": "Control room"
+    },
+    "popup_btn_settings": {
+        "message": "Settings"
+    },
+    "popup_title_need_auth": {
+        "message": "In order for the application to gain access to tasks, you need to configure the plugin and log in to Jira"
+    },
+    "queue_title_tickets": {
+        "message": "Tasks"
+    },
+    "queue_title_time": {
+        "message": "Time"
+    },
+    "settings_assignee": {
+        "message": "Assignee:"
+    },
+    "settings_btn_create_project": {
+        "message": "Create project"
+    },
+    "settings_btn_create_queue": {
+        "message": "Create queue"
+    },
+    "settings_btn_delete_project": {
+        "message": "Delete project"
+    },
+    "settings_btn_delete_queue": {
+        "message": "Delete queue"
+    },
+    "settings_btn_export": {
+        "message": "Export settings"
+    },
+    "settings_btn_import": {
+        "message": "Import settings"
+    },
+    "settings_btn_jira_connect": {
+        "message": "Connect"
+    },
+    "settings_btn_jql_check": {
+        "message": "Check"
+    },
+    "settings_btn_save": {
+        "message": "Save"
+    },
+    "settings_btn_show_hide_jql_result": {
+        "message": "Show/Hide"
+    },
+    "settings_color_association_btn_add": {
+        "message": "Add association"
+    },
+    "settings_color_association_btn_delete": {
+        "message": "Delete association"
+    },
+    "settings_color_association_description": {
+        "message": "Specify the name of the status of the tasks and the color with which it should be highlighted"
+    },
+    "settings_color_association_title": {
+        "message": "Task color change"
+    },
+    "settings_color_color": {
+        "message": "Color:"
+    },
+    "settings_color_status": {
+        "message": "Status name:"
+    },
+    "settings_common_queue": {
+        "message": "Commo queue"
+    },
+    "settings_common_queue_tooltip": {
+        "message": "A common queue is a queue with no owner and no time distribution. Can be a default queue where fresh tasks go"
+    },
+    "settings_dispatcherMode": {
+        "message": "Enable dispatcher mode"
+    },
+    "settings_error_http": {
+        "message": "Data request error. Details in browser console"
+    },
+    "settings_error_saving": {
+        "message": "Error saving settings. Details in browser console"
+    },
+    "settings_error_saving_required_fields": {
+        "message": "Saving error - fill in the required fields"
+    },
+    "settings_export_label": {
+        "message": "Copy JSON to move settings to another location"
+    },
+    "settings_export_title": {
+        "message": "Import/Export Settings"
+    },
+    "settings_import_label": {
+        "message": "Paste the previously copied JSON here to save the settings"
+    },
+    "settings_jiraURL_title": {
+        "message": "Specify Jira URL:"
+    },
+    "settings_project_name": {
+        "message": "Project name:"
+    },
+    "settings_queue_name": {
+        "message": "Queue name:"
+    },
+    "settings_queue_selection_title": {
+        "message": "Select a queue to display:"
+    },
+    "settings_saving_ok": {
+        "message": "Settings have been saved"
+    },
+    "settings_timePicker": {
+        "message": "Date-time field:"
+    },
+    "settings_timePicker_dividing": {
+        "message": "Divide an hour by:"
+    },
+    "settings_timePicker_dividing_tooltip": {
+        "message": "It is used when it is necessary to split the hour into smaller intervals."
+    },
+    "settings_timePicker_from": {
+        "message": "Work from:"
+    },
+    "settings_timePicker_from_tooltip": {
+        "message": "The hour at which the working day will start"
+    },
+    "settings_timePicker_title": {
+        "message": "Date-time setting:"
+    },
+    "settings_timePicker_to": {
+        "message": "Work up to:"
+    },
+    "settings_timePicker_to_tooltip": {
+        "message": "Hour until which the working day lasts"
+    },
+    "settings_timePicker_tooltip": {
+        "message": "For the plugin to work, you need a field that will be used to distribute tasks over time. The field ID can be viewed in the Jira page source code and should be editable"
+    },
+    "settings_title": {
+        "message": "Jiraffe - Settings"
+    },
+    "settings_track_queue": {
+        "message": "Track"
+    },
+    "title_dispatcher": {
+        "message": "Jiraffe - Control room"
+    },
+    "tooltip_move_with_tab": {
+        "message": "If you use TAB ⭾ to switch between fields, it will be more convenient and faster to work!"
+    }
+}

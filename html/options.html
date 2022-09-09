@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title
+      class="chrome_i18n"
+      data-chrome_i18n="__MSG_settings_title__"></title>
+   <link
+      rel="stylesheet"
+      href="../css/bootstrap.css">
+</head>
+
+<body>
+   <div class="container">
+
+      <!----------Подключение---------->
+      <label
+         class="mt-3 form-label chrome_i18n"
+         for="jiraURL_project"
+         data-chrome_i18n="__MSG_settings_jiraURL_title__"></label>
+      <div
+         class="input-group mb-2"
+         id="jiraURL_project">
+
+         <input
+            class="form-control"
+            id="jiraURL"
+            type="url"
+            placeholder="https://example.com/jira"
+            requare>
+         <button
+            class="btn btn-outline-secondary chrome_i18n"
+            type="button"
+            id="connect"
+            data-chrome_i18n="__MSG_settings_btn_jira_connect__"></button>
+      </div>
+
+      <!------Информация о сервере-------->
+      <div
+         class="card card-body mb-3 d-none"
+         id="server_info"></div>
+
+
+      <button
+         id="createProject"
+         class="btn btn-primary mb-3 chrome_i18n"
+         data-chrome_i18n="__MSG_settings_btn_create_project__"
+         disabled></button>
+
+      <!--------Блок для проектов------------->
+      <div class="mb-3" id="projectList"></div>
+
+      <!--Указание поля даты и времени-->
+      <label
+         class="form-label chrome_i18n"
+         for="time_settings"
+         data-chrome_i18n="__MSG_settings_timePicker_title__"></label>
+      <div
+         class="input-group mb-3"
+         id="time_settings">
+
+         <span
+            class="input-group-text chrome_i18n"
+            data-chrome_i18n="settings_timePicker"></span>
+         <input
+            class="form-control"
+            type="text"
+            id="customfield"
+            placeholder="customfield_10001"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="__MSG_settings_timePicker_tooltip__"
+            requare>
+      </div>
+
+      <!--Установка времени работы "от" и "до"-->
+      <div class="mb-3 input-group">
+
+         <span
+            class="input-group-text chrome_i18n"
+            data-chrome_i18n="__MSG_settings_timePicker_from__"></span>
+         <input
+            class="form-control"
+            type="time"
+            list="limittimesList"
+            min="00:00"
+            max="23:00"
+            step="3600"
+            id="timeFrom"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="__MSG_settings_timePicker_from_tooltip__"
+            requare>
+
+         <span
+            class="input-group-text chrome_i18n"
+            data-chrome_i18n="__MSG_settings_timePicker_to__"></span>
+         <input
+            class="form-control"
+            type="time"
+            list="limittimesList"
+            min="00:00"
+            max="23:00"
+            step="3600"
+            id="timeTo"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="__MSG_settings_timePicker_to_tooltip__"
+            requare>
+
+         <datalist id="limittimesList">
+            <option value="07:00">
+            <option value="08:00">
+            <option value="09:00">
+            <option value="10:00">
+            <option value="17:00">
+            <option value="18:00">
+            <option value="19:00">
+         </datalist>
+
+         <!--Установка на сколько будет дробиться один час-->
+         <span
+            id="timeDividing_label"
+            class="input-group-text chrome_i18n"
+            data-chrome_i18n="__MSG_settings_timePicker_dividing__"></span>
+
+         <div class="form-control">
+
+            <input
+               class="form-control form-range"
+               type="range"
+               min="1"
+               max="6"
+               step="1"
+               value="1"
+               data-bs-toggle="tooltip"
+               title="__MSG_settings_timePicker_dividing_tooltip__"
+               id="timeDividing">
+         </div>
+
+      </div>
+
+      <!--Выставление ассоциаций "статус задачи-цвет"-->
+      <label
+         class="mt-3 form-label"
+         for="color_changer">
+         <h5
+            class="chrome_i18n"
+            data-chrome_i18n="__MSG_settings_color_association_title__"></h5>
+         <p
+            class="m-0 chrome_i18n"
+            data-chrome_i18n="__MSG_settings_color_association_description__"> </p>
+      </label>
+
+      <div
+         id="color_changer"
+         class="my-2"></div>
+      <button
+         class="btn btn-primary chrome_i18n"
+         data-chrome_i18n="__MSG_settings_color_association_btn_add__"
+         id="addColorAssociation"
+         type="button"></button>
+
+      <!--------Финальный блок-------->
+      <div class="my-5">
+
+         <div class="form-check">
+            <input
+               class="form-check-input"
+               type="checkbox"
+               id="dispatcherMode">
+            <label
+               class="form-check-label chrome_i18n"
+               data-chrome_i18n="__MSG_settings_dispatcherMode__"
+               for="dispatcherMode"></label>
+         </div>
+
+         <button
+            id="save"
+            class="btn btn-primary my-3 chrome_i18n"
+            data-chrome_i18n="__MSG_settings_btn_save__"></button>
+
+         <button
+            type="button"
+            class="btn btn-secondary chrome_i18n"
+            data-bs-toggle="modal"
+            data-bs-target="#exportModal"
+            data-chrome_i18n="__MSG_settings_btn_import__"
+            data-bs-action="import"></button>
+
+
+         <button
+            id="settings_export"
+            class="btn btn-secondary chrome_i18n"
+            data-bs-toggle="modal"
+            data-bs-target="#exportModal"
+            data-chrome_i18n="__MSG_settings_btn_export__"
+            data-bs-action="export"></button>
+
+      </div>
+      <!----------------------------->
+   </div>
+
+   <!-- Модальное окно экспорта настроек -->
+   <div class="modal fade"
+      id="exportModal">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5
+                  class="modal-title chrome_i18n"
+                  data-chrome_i18n="__MSG_settings_export_title__"></h5>
+               <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+               <div
+                  class="mb-3">
+                  <label
+                     id="settings_json_label"
+                     for="settings_json"
+                     class="form-label"></label>
+                  <textarea
+                     class="form-control"
+                     id="settings_json"
+                     rows="10"></textarea>
+               </div>
+            </div>
+            <div class="modal-footer">
+
+               <button
+                  type="button"
+                  id="settings_import"
+                  class="btn btn-secondary chrome_i18n d-none"
+                  data-chrome_i18n="__MSG_settings_btn_save__"></button>
+               <button
+                  type="button"
+                  class="btn btn-secondary chrome_i18n"
+                  data-bs-dismiss="modal"
+                  data-chrome_i18n="__MSG_btn_close__"></button>
+               <div class="input-group">
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- Блок для всплывающих уведомлений -->
+   <div class="position-relative">
+      <div
+         class="toast-container position-fixed bottom-0 end-0 p-3"
+         style="z-index: 11"></div>
+   </div>
+
+   <script src="../js/bootstrap/bootstrap.bundle.js"></script>
+   <script src="../js/common.js" type="module"></script>
+   <script src="../js/options.js" type="module"></script>
+</body>
+
+</html>

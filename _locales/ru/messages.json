@@ -1,0 +1,222 @@
+{
+    "btn_close": {
+        "message": "Закрыть"
+    },
+    "btn_update": {
+        "message": "Обновить"
+    },
+    "color_blue": {
+        "message": "Синий"
+    },
+    "color_cyan": {
+        "message": "Сине-зеленый"
+    },
+    "color_dark": {
+        "message": "Тёмный"
+    },
+    "color_green": {
+        "message": "Зеленый"
+    },
+    "color_grey": {
+        "message": "Серый"
+    },
+    "color_light": {
+        "message": "Светлый"
+    },
+    "color_red": {
+        "message": "Красный"
+    },
+    "color_yellow": {
+        "message": "Жёлтый"
+    },
+    "context_menu_btn_appoint_at": {
+        "message": "Назначить на :"
+    },
+    "dispatcher_btn_curent_day": {
+        "message": "Текущий день"
+    },
+    "dispatcher_btn_next_day": {
+        "message": "Следующий день"
+    },
+    "dispatcher_btn_previos_day": {
+        "message": "Предыдущий день"
+    },
+    "dispatcher_btn_taskFilter_all": {
+        "message": "Отобразить все до:"
+    },
+    "dispatcher_btn_taskFilter_today": {
+        "message": "Задачи за:"
+    },
+    "error_get_cookie": {
+        "message": "Ошибка получения cookie. Переавторизуйся в Jira"
+    },
+    "need_auth": {
+        "message": "Предварительно авторизуйся в Jira"
+    },
+    "notificaton_title_issue_updated": {
+        "message": "Обновились задачи в очереди:"
+    },
+    "notificaton_title_new_issue": {
+        "message": "Новые задачи в очереди:"
+    },
+    "plugin_description": {
+        "message": "Инструмент распределение задач Jira 8 ServiceDesk по времени и исполнителям, отображение уведомлений об обновлении и новых задачах"
+    },
+    "plugin_name": {
+        "message": "Жирафик. Задачи по времени и исполнителям"
+    },
+    "plugin_short_name": {
+        "message": "Жирафик"
+    },
+    "popup_btn_auth": {
+        "message": "Авторизоваться",
+        "description": "Кнопка открытия страницы авторизации Jira"
+    },
+    "popup_btn_control_room": {
+        "message": "Диспетчерская"
+    },
+    "popup_btn_settings": {
+        "message": "Настройки"
+    },
+    "popup_title_need_auth": {
+        "message": "Чтобы приложение получило доступ к задачам, необходимо настроить плагин и авторизоваться в Jira"
+    },
+    "queue_title_tickets": {
+        "message": "Задачи"
+    },
+    "queue_title_time": {
+        "message": "Время"
+    },
+    "settings_assignee": {
+        "message": "Исполнитель:"
+    },
+    "settings_btn_create_project": {
+        "message": "Создать проект"
+    },
+    "settings_btn_create_queue": {
+        "message": "Создать очередь"
+    },
+    "settings_btn_delete_project": {
+        "message": "Удалить проект"
+    },
+    "settings_btn_delete_queue": {
+        "message": "Удалить очередь"
+    },
+    "settings_btn_export": {
+        "message": "Экспорт настроек"
+    },
+    "settings_btn_import": {
+        "message": "Импорт настроек"
+    },
+    "settings_btn_jira_connect": {
+        "message": "Подключить"
+    },
+    "settings_btn_jql_check": {
+        "message": "Проверить"
+    },
+    "settings_btn_save": {
+        "message": "Сохранить"
+    },
+    "settings_btn_show_hide_jql_result": {
+        "message": "Показать/скрыть"
+    },
+    "settings_color_association_btn_add": {
+        "message": "Добавить ассоциацию"
+    },
+    "settings_color_association_btn_delete": {
+        "message": "Удалить ассоциацию"
+    },
+    "settings_color_association_description": {
+        "message": "Укажи название статуса задач и цвет, которым он должен выделяться"
+    },
+    "settings_color_association_title": {
+        "message": "Смена цвета задач"
+    },
+    "settings_color_color": {
+        "message": "Цвет:"
+    },
+    "settings_color_status": {
+        "message": "Название статуса:"
+    },
+    "settings_common_queue": {
+        "message": "Общая очередь"
+    },
+    "settings_common_queue_tooltip": {
+        "message": "Общая очередь - очередь без владельца, не имеющая распределения по времени. Может быть очередью по-умолчанию, куда попадают свежие задачи"
+    },
+    "settings_dispatcherMode": {
+        "message": "Включить режим диспетчера"
+    },
+    "settings_error_http": {
+        "message": "Ошибка запроса данных. Подробности в консоли браузера"
+    },
+    "settings_error_saving": {
+        "message": "Ошибка сохранения настроек. Подробности в консоли браузера"
+    },
+    "settings_error_saving_required_fields": {
+        "message": "Ошибка сохранения - заполните обязательные поля"
+    },
+    "settings_export_label": {
+        "message": "Скопируй JSON, чтобы перенести настройки в другое место"
+    },
+    "settings_export_title": {
+        "message": "Импорт/экспорт настроек"
+    },
+    "settings_import_label": {
+        "message": "Вставь сюда ранее скопированный JSON, для сохранения настроек"
+    },
+    "settings_jiraURL_title": {
+        "message": "Укажи URL Jira:"
+    },
+    "settings_project_name": {
+        "message": "Название проекта:"
+    },
+    "settings_queue_name": {
+        "message": "Название очереди:"
+    },
+    "settings_queue_selection_title": {
+        "message": "Выбери очередь для отображения:"
+    },
+    "settings_saving_ok": {
+        "message": "Настройки сохранены"
+    },
+    "settings_timePicker": {
+        "message": "Поле даты-времени:"
+    },
+    "settings_timePicker_dividing": {
+        "message": "Делить час на:"
+    },
+    "settings_timePicker_dividing_tooltip": {
+        "message": "Используется при необходимости дробления часа на меньшие промежутки"
+    },
+    "settings_timePicker_from": {
+        "message": "Работа с:"
+    },
+    "settings_timePicker_from_tooltip": {
+        "message": "Час, с которого будет начинаться рабочий день"
+    },
+    "settings_timePicker_title": {
+        "message": "Настройка даты-времени:"
+    },
+    "settings_timePicker_to": {
+        "message": "Работа до:"
+    },
+    "settings_timePicker_to_tooltip": {
+        "message": "Час, до которого длится рабочий день"
+    },
+    "settings_timePicker_tooltip": {
+        "message": "Для работы плагина необходимо поле, по которому будет происходить распределение задач по времени. ID поля можно посмотреть в исходном коде страницы Jira и должно быть редактируемым"
+    },
+    "settings_title": {
+        "message": "Жирафик - Настройки"
+    },
+    "settings_track_queue": {
+        "message": "Отслеживать"
+    },
+    "title_dispatcher": {
+        "message": "Жирафик - Диспетчерская"
+    },
+    "tooltip_move_with_tab": {
+        "message": "Если для переключения между полями использовать TAB ⭾, то работать будет удобнее и быстрее!"
+    }
+}

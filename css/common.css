@@ -1,0 +1,32 @@
+.table_queue {
+    max-width: 21rem;
+    min-width: 21rem;
+}
+
+.table_queue_common {
+    max-width: 17rem;
+    min-width: 17rem;
+}
+
+.td_time {
+    width: 4rem;
+}
+
+td {
+    min-height: 2.5rem;
+}
+
+.time_marker {
+    z-index: 1;
+}
+
+.context_menu {
+    position: absolute;
+    z-index: 2;
+    display: block;
+}
+
+.scroll-line {
+    min-height: 20px;
+    opacity: 0.25;
+}

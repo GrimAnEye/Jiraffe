@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_plugin_name__",
+    "short_name": "__MSG_plugin_short_name__",
+    "description": "__MSG_plugin_description__",
+    "default_locale": "ru",
+    "version": "2.0.0",
+    "icons": {
+        "128": "images/jirafee128.png"
+    },
+    "options_page": "html/options.html",
+    "action": {
+        "default_title": "__MSG_plugin_short_name__",
+        "default_icon": "images/jirafee128.png",
+        "default_popup": "html/popup.html"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "author": "alfavitik97@gmail.com",
+    "homepage_url": "https://github.com/GrimAnEye/jiraffe",
+    "permissions": [
+        "notifications",
+        "cookies",
+        "storage",
+        "alarms"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "js/bootstrap/bootstrap.bundle.js.map"
+            ],
+            "matches": [
+                "chrome-extension://__MSG_@@extension_id__/*"
+            ]
+        },
+        {
+            "resources": [
+                "css/bootstrap.css.map"
+            ],
+            "matches": [
+                "chrome-extension://__MSG_@@extension_id__/*"
+            ]
+        }
+    ]
+}
