@@ -6,7 +6,8 @@ import {
    TooltipsActivator,
    TooltipsRemover,
    TooltipsTranslate,
-   GenerateQueue
+   GenerateQueue,
+   IsNewerVersion
 
 } from './common.js';
 
@@ -62,7 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
          if (settings.LastVersion.Version) {
 
             // Проверяю, что текущая версия не обновлена
-            if (settings.LastVersion.Version != chrome.runtime.getManifest().version) {
+            if (IsNewerVersion(
+               chrome.runtime.getManifest().version,
+               settings.LastVersion.Version)) {
+
                newVersionBtn.classList.remove('d-none');
                newVersionBtn.href = settings.LastVersion.Url;
             }

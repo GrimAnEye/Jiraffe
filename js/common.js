@@ -1064,3 +1064,21 @@ function generateIssues(queue, tbody, selectedDate, from, to, showAll, dividing,
       }
    }
 }
+
+/**
+ * Функция проверки версии расширения
+ * @param {string} oldVer старая версия расширения в формате x.y.z
+ * @param {string} newVer новая версия расширения в формате x.y.z
+ * @returns {boolean} true, если новая версия имеет больший порядковый номер
+ */
+export function IsNewerVersion(oldVer, newVer) {
+   const oldParts = oldVer.split('.');
+   const newParts = newVer.split('.');
+   for (var i = 0; i < newParts.length; i++) {
+      const a = parseInt(newParts[i]) || 0;
+      const b = parseInt(oldParts[i]) || 0;
+      if (a > b) return true;
+      if (a < b) return false;
+   }
+   return false;
+}

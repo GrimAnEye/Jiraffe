@@ -1,5 +1,5 @@
 import {
-   LoadSettings, TypeJiraffeSettings, TypeIssue, JiraGetJqlIssues, TypeLastVersion
+   LoadSettings, TypeJiraffeSettings, TypeIssue, JiraGetJqlIssues, TypeLastVersion, IsNewerVersion
 } from './js/common.js';
 
 
@@ -222,23 +222,6 @@ function prepareMessage(issues, isNewIssues, isCommon) {
    return message;
 }
 
-/**
- * Функция проверки версии расширения
- * @param {string} oldVer старая версия расширения в формате x.y.z
- * @param {string} newVer новая версия расширения в формате x.y.z
- * @returns {boolean} true, если новая версия имеет больший порядковый номер
- */
-function isNewerVersion(oldVer, newVer) {
-   const oldParts = oldVer.split('.');
-   const newParts = newVer.split('.');
-   for (var i = 0; i < newParts.length; i++) {
-      const a = parseInt(newParts[i]) || 0;
-      const b = parseInt(oldParts[i]) || 0;
-      if (a > b) return true;
-      if (a < b) return false;
-   }
-   return false;
-}
 
 /**
  * Обращается к Github API и запрашивает последнюю версию приложения
@@ -272,7 +255,7 @@ function checkNewVersion() {
                let currentVersion = chrome.runtime.getManifest().version;
 
                // Сравниваю версии
-               if (isNewerVersion(currentVersion, lastVersion.tag_name.slice(1))) {
+               if (IsNewerVersion(currentVersion, lastVersion.tag_name.slice(1))) {
 
                   // Если вышла новая версия, сохраняю номер версии и ссылку на неё
                   let updData = new TypeLastVersion(lastVersion.tag_name.slice(1), lastVersion.html_url, new Date().getTime());
