@@ -53,7 +53,7 @@ export function DragStart(ev) {
 
 };
 
-// После котончиная перетаскивания элемента, скрывает полоски прокрутки
+// После окончания перетаскивания элемента, скрывает полоски прокрутки
 export function DragEnd(ev) {
    ev.preventDefault();
    // Скрываю полоски прокрутки
@@ -310,8 +310,8 @@ export function TooltipsActivator() {
 /**
  * Функция вызова уведомлений для пользователя
  * @param {string} text текст сообщения
- * @param {string} backgroundColor фоновый цвет уведомления, на базе классов .bg-... Boostrap 5.1
- * @param {string} textColor цвет текста уведомления, на базе классов .text-... Boostrap 5.1
+ * @param {string} backgroundColor фоновый цвет уведомления, на базе классов .bg-... Bootstrap 5.1
+ * @param {string} textColor цвет текста уведомления, на базе классов .text-... Bootstrap 5.1
  */
 export function NotificationCreator(text, backgroundColor, textColor) {
    let div1 = document.createElement('DIV');
@@ -353,15 +353,16 @@ export function GenerateID() {
  */
 export class TypeJiraffeSettings {
    /**
-   * @typedef  {object}           TypeJiraffeSettings  объект пользовательских настроек
-   * @property {string}           JiraURL              адрес хоста JIRA. Например: http://example.com/jira
-   * @property {string}           TimeField            поле Jira для отслеживания времени
-   * @property {number}           TimeFrom             час начала рабочего дня
-   * @property {number}           TimeTo               час завершения рабочего дня
-   * @property {number}           TimeDividing         число, дробящее час на части
-   * @property {TypeProject[]}    Projects             массив отслеживаемых проектов
-   * @property {TypeUser}         User                 данные текущего пользователя
-   * @property {TypeColorChanger} ColorChanger         коллекция ключ-значение для хранения ассоциаций цветов
+   * @typedef  {object}           TypeJiraffeSettings объект пользовательских настроек
+   * @property {string}           JiraURL             адрес хоста JIRA. Например: http://example.com/jira
+   * @property {string}           TimeField           поле Jira для отслеживания времени
+   * @property {number}           TimeFrom            час начала рабочего дня
+   * @property {number}           TimeTo              час завершения рабочего дня
+   * @property {number}           TimeDividing        число, дробящее час на части
+   * @property {TypeProject[]}    Projects            массив отслеживаемых проектов
+   * @property {TypeUser}         User                данные текущего пользователя
+   * @property {TypeColorChanger} ColorChanger        коллекция ключ-значение для хранения ассоциаций цветов
+   * @property {TypeLastVersion}  LastVersion         хранит информацию по последней версии плагина
    */
 
    /**
@@ -373,11 +374,12 @@ export class TypeJiraffeSettings {
     * @param {TypeProject[]}    projects     массив отслеживаемых проектов
     * @param {TypeUser}         user         данные текущего пользователя
     * @param {TypeColorChanger} colorChanger коллекция ассоциаций статуса задачи и цвета отображения
+    * @param {TypeLastVersion}  lastVersion   информация по последней версии плагина
     */
    constructor(
       jiraURL, timeField,
       timeFrom, timeTo, timeDividing,
-      user, projects, colorChanger) {
+      user, projects, colorChanger, lastVersion) {
 
       this.JiraURL = jiraURL ? jiraURL : '';
       this.Projects = projects ? projects : [];
@@ -387,6 +389,7 @@ export class TypeJiraffeSettings {
       this.TimeTo = timeTo ? timeTo : 0;
       this.User = function () { if (user) { return user } else { return new TypeUser } }();
       this.ColorChanger = colorChanger ? colorChanger : new TypeColorChanger();
+      this.LastVersion = lastVersion ? lastVersion : new TypeLastVersion();
    }
 };
 
@@ -423,7 +426,7 @@ export class TypeQueue {
    * @property {string}  Name         название очереди, используется для уведомлений исполнителя 
    * @property {string}  Assignee     логин исполнителя задачи
    * @property {string}  JQL          строка запроса задач
-   * @property {boolean} IsCommon     является ли очередь общей. У общих очередей нет разделения по времени, отправляет учедомления диспетчеру
+   * @property {boolean} IsCommon     является ли очередь общей. У общих очередей нет разделения по времени, отправляет уведомления диспетчеру
    * @property {boolean} ShowInPopup  отображать ли во всплывающем окне и присылать уведомления при изменении данной очереди
    * @property {TypeIssue[]} Issues       перечень задач данной очереди
    */
@@ -433,7 +436,7 @@ export class TypeQueue {
    * @param   {string}  name         название очереди, используется для уведомлений исполнителя 
    * @param   {string}  assignee     логин исполнителя задачи
    * @param   {string}  jql          строка запроса задач
-   * @param   {boolean} isCommon     является ли очередь общей. У общих очередей нет разделения по времени, отправляет учедомления диспетчеру
+   * @param   {boolean} isCommon     является ли очередь общей. У общих очередей нет разделения по времени, отправляет уведомления диспетчеру
    * @param   {boolean} showInPopup присылать ли уведомления при изменении данной очереди
    * @param   {TypeIssue[]} issues       перечень задач данной очереди
    */
@@ -522,6 +525,26 @@ export class TypeColorChanger {
    }
 }
 
+export class TypeLastVersion {
+   /**
+    * @typedef TypeLastVersion объект хранящий новую версию расширения
+    * @property {string} Version номер новой версии расширения
+    * @property {string} Url ссылка на страницу Github последней версии
+    * @property {number} LastCheck время последней проверки
+    */
+
+   /**
+    * @param {string} version строка версии в формате x.y.z
+    * @param {string} url ссылка на страницу новой версии на github
+    * @param {number} lastCheck время последней проверки
+    */
+   constructor(version, url, lastCheck) {
+      this.Version = version ? version.trim() : '';
+      this.Url = url ? url.trim() : '';
+      this.LastCheck = lastCheck ? lastCheck : 0;
+   }
+}
+
 
 //========================================================================================//
 
@@ -598,7 +621,7 @@ export function JiraGetCurrentUser(jiraURL) {
    }
 };
 /**
- * Зарпашивает список задач из Jira по jql строке
+ * Запрашивает список задач из Jira по jql строке
  * @param {string} jiraURL адрес сервера Jira
  * @param {string} jql строка запроса задач Jira
  * @param {string} [customfield] - запрос поля времени. Если не указывать, возвращаться не будет
@@ -701,7 +724,7 @@ export function JiraTimeToFormat(timestamp) {
    let timeZone = new Date(timestamp).getTimezoneOffset() / -60; // Определяю часовой пояс
    let timeSymbol = timeZone < 0 ? "-" : "+"; // Определяю символ часового пояса (+/-)
 
-   // Cоставляю часовой пояс
+   // Составляю часовой пояс
    return time.getFullYear() + '-' +
       (time.getMonth() < 9 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1) + '-' +
       (time.getDate() < 10 ? '0' + time.getDate() : time.getDate()) + 'T' +
@@ -718,13 +741,13 @@ export function JiraTimeToFormat(timestamp) {
 /**
  * Формирует таблицу очереди и возвращает её в виде HTMLElement
  * @param   {TypeQueue}   queue        объект настроек очереди для формирования таблицы
- * @param   {number}      selectedDate дата, на которую необходимо отрисовывать задачи
+ * @param   {number}      selectedDate дата, на которую необходимо отображать задачи
  * @param   {number}      from         час, с которого начинается день
  * @param   {number}      to           час, на котором день заканчивается
- * @param   {boolean}     showAll      требуется отрисовавать все задачи или только на конкретный день
+ * @param   {boolean}     showAll      требуется отображать все задачи или только на конкретный день
  * @param   {number}      dividing     число на которое дробится час, при назначении задач на минуты
  * @param   {string}      jiraURL      адрес сервера Jira
- * @param   {TypeColorChanger} colorChanger объект цветовой ассоциации, для отпределения цвета задачи
+ * @param   {TypeColorChanger} colorChanger объект цветовой ассоциации, для определения цвета задачи
  * @returns {HTMLElement} сформированная таблица очереди
  */
 export function GenerateQueue(queue, selectedDate, from, to, showAll, dividing, jiraURL, colorChanger) {
@@ -750,7 +773,7 @@ export function GenerateQueue(queue, selectedDate, from, to, showAll, dividing, 
  * Формирует тело очереди в виде таблицы
  * @param {boolean}      [isCommon] является ли очередь общей (без временных меток)
  * @param {string}       title      заголовок очереди
- * @param {string}       id         локальный индификатор очереди
+ * @param {string}       id         локальный идентификатор очереди
  * @param {string}       assignee   логин исполнителя в данной очереди
  * @return {HTMLElement}            объект сформированного тела очереди
  */
@@ -803,9 +826,9 @@ function generateTableBody(isCommon, title, id, assignee) {
 };
 
 /**
- * Формирует строки с/без временых строк, для заполнения таблицы очереди
+ * Формирует строки с/без временных строк, для заполнения таблицы очереди
  * @param   {boolean} [isCommon] является ли очередь общей (без временных меток)
- * @param   {number}  from       время, с которого начивается рабочий день
+ * @param   {number}  from       время, с которого начинается рабочий день
  * @param   {number}  to         время до которого длится рабочий день (не включительно)
  * @returns {HTMLElement[]}      массив HTMLElement-ов, содержит <tr></tr> строк таблицы с/без временных меток
  */
@@ -839,7 +862,7 @@ function generateTimeRows(isCommon, from, to) {
       to_time = new Date(to_time.getTime() + 24 * 3600 * 1000);
    }
 
-   // Перебираю все чаcы от начала, до конца
+   // Перебираю все часы от начала, до конца
    for (let currentTime = from_time;
       currentTime < to_time;
       currentTime.setHours(currentTime.getHours() + 1)) {
@@ -872,13 +895,13 @@ function generateTimeRows(isCommon, from, to) {
  * Формирует объекты задач и добавляет его на тело очереди
  * @param {TypeQueue}        queue    очередь, содержащий параметры выбранной очереди и имеющиеся задачи
  * @param {number}           from     час, с которого начинается день
- * @param {number}           selectedDate дата, на которую необходимо отрисовывать задачи
+ * @param {number}           selectedDate дата, на которую необходимо отображать задачи
  * @param {HTMLElement}      tbody    тело родительской очереди
  * @param {number}           to       час, на котором день заканчивается
- * @param {boolean}          showAll  требуется отрисовавать все задачи или только на конкретный день
+ * @param {boolean}          showAll  требуется отображать все задачи или только на конкретный день
  * @param {number}           dividing делитель часа на меньшие части
  * @param {string}           jiraURL  адрес сервера jira
- * @param {TypeColorChanger} colorChanger объект цветовой ассоциации, для отпределения цвета задачи
+ * @param {TypeColorChanger} colorChanger объект цветовой ассоциации, для определения цвета задачи
  */
 function generateIssues(queue, tbody, selectedDate, from, to, showAll, dividing, jiraURL, colorChanger) {
 
@@ -966,7 +989,7 @@ function generateIssues(queue, tbody, selectedDate, from, to, showAll, dividing,
          td.appendChild(html_issue);
 
       } else {
-         // Временая метка, для поиска нужного класса
+         // Временная метка, для поиска нужного класса
          let time_label = '';
 
          // Если время задачи в установленных временных рамках
@@ -975,7 +998,7 @@ function generateIssues(queue, tbody, selectedDate, from, to, showAll, dividing,
             (issue_time <= to_time) &&
             (issue.Time > 0)
          ) {
-            // Получаю требуемую временую метку
+            // Получаю требуемую временную метку
             time_label = issue_time.getHours() < 10 ?
                't0' + issue_time.getHours() + '_00' :
                't' + issue_time.getHours() + '_00';
@@ -1029,7 +1052,7 @@ function generateIssues(queue, tbody, selectedDate, from, to, showAll, dividing,
             html_issue.appendChild(span);
 
          } else {
-            // Если же задача вне настроеного временного диапазона или без времени
+            // Если же задача вне настроенного временного диапазона или без времени
             // то размещаю её в начале рабочего дня
             time_label = from_time.getHours() < 10 ?
                't0' + from_time.getHours() + '_00' :

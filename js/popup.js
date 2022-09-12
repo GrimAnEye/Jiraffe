@@ -48,20 +48,40 @@ document.addEventListener('DOMContentLoaded', () => {
       chrome.runtime.sendMessage('update', status => {
          if (status.status) {
             TooltipsRemover();
-            availabilityСheck();
+            availabilityCheck();
          }
       });
    });
+
+   // Проверка наличия новой версии и отображение кнопки
+   {
+      let newVersionBtn = document.getElementById('newVersion');
+      LoadSettings("LastVersion").then(settings => {
+
+         // Если есть новая версия
+         if (settings.LastVersion.Version) {
+
+            // Проверяю, что текущая версия не обновлена
+            if (settings.LastVersion.Version != chrome.runtime.getManifest().version) {
+               newVersionBtn.classList.remove('d-none');
+               newVersionBtn.href = settings.LastVersion.Url;
+            }
+
+
+         }
+      });
+   }
+
 
    // Запуск перерисовки popup каждые 10 секунд
    setInterval(() => {
       TooltipsRemover();
       // Проверка состояния и отрисовка очередей
-      availabilityСheck();
+      availabilityCheck();
    }, 10000);
 
    // Проверка состояния и отрисовка очередей
-   availabilityСheck();
+   availabilityCheck();
 
    // Назначение прокрутки при перетаскивании задач
    document.getElementById('scroll_top').addEventListener('dragover', event => {
@@ -77,11 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Проверяет наличие настроек и меняет отображение стартовых объектов
  */
-function availabilityСheck() {
+function availabilityCheck() {
 
    // Загружаю настройки
    LoadSettings(new TypeJiraffeSettings).then(settings => {
-      // В случае ошибок - небходимо скрыть интерфейс
+      // В случае ошибок - необходимо скрыть интерфейс
       let showAuth = () => {
          document.getElementById('auth_card').classList.remove('d-none');
          document.getElementById('renderContainer').classList.add('d-none');
@@ -101,7 +121,7 @@ function availabilityСheck() {
 
             // Если же данные есть, то меняю меню
             .then(() => {
-               // Если включен режим диспетчера, то отображаю кнопку диспеческой
+               // Если включен режим диспетчера, то отображаю кнопку диспетчерской
                if (settings.User.Dispatcher) {
                   document.getElementById('dispatcherBtn').classList.remove('d-none');
                }
@@ -143,7 +163,7 @@ function availabilityСheck() {
  * @param {number}            from           час, с которого начинается день
  * @param {number}            to             час, которым заканчивается день
  * @param {string}            jiraURL        адрес сервера Jira
- * @param {TypeColorChanger} colorChanger объект цветовой ассоциации, для отпределения цвета задачи
+ * @param {TypeColorChanger} colorChanger объект цветовой ассоциации, для определения цвета задачи
  */
 export function RenderQueues(htmlQueuesList, projects, from, to, dividing, jiraURL, colorChanger) {
 

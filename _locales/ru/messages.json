@@ -32,13 +32,13 @@
     "context_menu_btn_appoint_at": {
         "message": "Назначить на :"
     },
-    "dispatcher_btn_curent_day": {
+    "dispatcher_btn_current_day": {
         "message": "Текущий день"
     },
     "dispatcher_btn_next_day": {
         "message": "Следующий день"
     },
-    "dispatcher_btn_previos_day": {
+    "dispatcher_btn_previous_day": {
         "message": "Предыдущий день"
     },
     "dispatcher_btn_taskFilter_all": {
@@ -53,17 +53,26 @@
     "need_auth": {
         "message": "Предварительно авторизуйся в Jira"
     },
-    "notificaton_title_issue_updated": {
+    "notification_title_issue_updated": {
         "message": "Обновились задачи в очереди:"
     },
-    "notificaton_title_new_issue": {
+    "notification_title_new_issue": {
         "message": "Новые задачи в очереди:"
     },
     "plugin_description": {
-        "message": "Инструмент распределение задач Jira 8 ServiceDesk по времени и исполнителям, отображение уведомлений об обновлении и новых задачах"
+        "message": "Инструмент распределение задач Jira по времени и исполнителям, отображение уведомлений об обновлении и новых задачах"
     },
     "plugin_name": {
         "message": "Жирафик. Задачи по времени и исполнителям"
+    },
+    "plugin_new_version_body": {
+        "message": "Для получения ссылки на новую версию, кликни по кнопке во всплывающем окошке!"
+    },
+    "plugin_new_version_title": {
+        "message": "Вышло обновление Жирафика!"
+    },
+    "plugin_new_version_btn": {
+        "message": "Новая версия!"
     },
     "plugin_short_name": {
         "message": "Жирафик"

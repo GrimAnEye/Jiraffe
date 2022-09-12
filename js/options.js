@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Проверяю, что сервер отвечает на запросы
       JiraServerInfo(jiraURL).then(server => {
 
-         // Отрисовываю информацию сервера
+         // Отображаю информацию сервера
          let p1 = document.createElement('p');
          p1.classList.add('my-0');
          p1.innerHTML = 'ServerTitle: <span class="text-success">' + server.serverTitle + '</span>';
@@ -636,7 +636,7 @@ function CreateColorChanger(parent) {
  * Формирует элемент option
  * @param {string} value значение которое должно быть в опции
  * @param {*} text отображаемое значение опции
- * @returns {HTMLElement} возвращает подготовленый объект опции
+ * @returns {HTMLElement} возвращает подготовленный объект опции
  */
 function colorOptionsGenerator(value, text) {
    let option = document.createElement('option');
@@ -783,7 +783,7 @@ function SaveSettings() {
    }
 
 
-   // Запрашваю данные пользователя
+   // Запрашиваю данные пользователя
    JiraGetCurrentUser(jiraURL.value).then(myself => {
 
       JsonJiraffeSettings.User = new TypeUser(

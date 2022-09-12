@@ -3,7 +3,7 @@
         "message": "Close"
     },
     "btn_update": {
-        "message": "Upadate"
+        "message": "Update"
     },
     "color_blue": {
         "message": "Blue"
@@ -32,14 +32,14 @@
     "context_menu_btn_appoint_at": {
         "message": "Appoint at:"
     },
-    "dispatcher_btn_curent_day": {
-        "message": "Curent day"
+    "dispatcher_btn_current_day": {
+        "message": "Current day"
     },
     "dispatcher_btn_next_day": {
         "message": "Next day"
     },
-    "dispatcher_btn_previos_day": {
-        "message": "Previos day"
+    "dispatcher_btn_previous_day": {
+        "message": "Previous day"
     },
     "dispatcher_btn_taskFilter_all": {
         "message": "Show all until:"
@@ -48,15 +48,15 @@
         "message": "Tasks for:"
     },
     "error_get_cookie": {
-        "message": "Error getting cookie. Relog in to Jira"
+        "message": "Error getting cookie. Re-login to Jira"
     },
     "need_auth": {
         "message": "Pre-authorize in Jira"
     },
-    "notificaton_title_issue_updated": {
+    "notification_title_issue_updated": {
         "message": "Updated tasks in the queue:"
     },
-    "notificaton_title_new_issue": {
+    "notification_title_new_issue": {
         "message": "New tasks in the queue:"
     },
     "plugin_description": {
@@ -64,6 +64,15 @@
     },
     "plugin_name": {
         "message": "Jiraffe. Tasks by time and performers"
+    },
+    "plugin_new_version_body": {
+        "message": "To get a link to the new version, click on the button in the popup window!"
+    },
+    "plugin_new_version_title": {
+        "message": "Jiraffe update is out!"
+    },
+    "plugin_new_version_btn": {
+        "message": "New version!"
     },
     "plugin_short_name": {
         "message": "Jiraffe"
@@ -138,7 +147,7 @@
         "message": "Status name:"
     },
     "settings_common_queue": {
-        "message": "Commo queue"
+        "message": "Common queue"
     },
     "settings_common_queue_tooltip": {
         "message": "A common queue is a queue with no owner and no time distribution. Can be a default queue where fresh tasks go"

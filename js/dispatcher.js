@@ -8,7 +8,7 @@ import {
 // После загрузка страницы, загружаем настройки и назначаем события на кнопки
 document.addEventListener("DOMContentLoaded", () => {
 
-   // Отрисовываю проекты и очереди
+   // Отображаю проекты и очереди
    RenderProjects(document.getElementById('projectsList'));
 
    // Так же отрисовка каждые 10 секунд
@@ -27,16 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
    });
 
    // Назначение текущего дня на поле ввода даты
-   document.getElementById('taskFilter_date').value = inputDateFormater(Date.now());
+   document.getElementById('taskFilter_date').value = inputDateFormatter(Date.now());
 
    // Нажатие на кнопку текущего дня
    document.getElementById('currentDay').addEventListener('click', () => {
 
       // Сменяю дату на текущий день
       let taskFilter_date = document.getElementById('taskFilter_date');
-      taskFilter_date.value = inputDateFormater(Date.now());
+      taskFilter_date.value = inputDateFormatter(Date.now());
 
-      // Отрисовываю задачи
+      // Отображаю задачи
       RenderProjects(document.getElementById('projectsList'));
    });
 
@@ -47,11 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let taskFilter_date = document.getElementById('taskFilter_date');
       let changeDate = new Date(taskFilter_date.valueAsNumber);
 
-      taskFilter_date.value = inputDateFormater(
+      taskFilter_date.value = inputDateFormatter(
          new Date(changeDate).setDate(changeDate.getDate() - 1)
       );
 
-      // Отрисовываю задачи
+      // Отображаю задачи
       RenderProjects(document.getElementById('projectsList'));
    });
 
@@ -62,15 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
       let taskFilter_date = document.getElementById('taskFilter_date');
       let changeDate = new Date(taskFilter_date.valueAsNumber);
 
-      taskFilter_date.value = inputDateFormater(
+      taskFilter_date.value = inputDateFormatter(
          new Date(changeDate).setDate(changeDate.getDate() + 1)
       );
 
-      // Отрисовываю задачи
+      // Отображаю задачи
       RenderProjects(document.getElementById('projectsList'));
    });
 
-   // Cкрытия альтернативного контекстного меню
+   // Скрытия альтернативного контекстного меню
    document.addEventListener('mousedown',
       (event) => ContextMenuClose(
          event,
@@ -166,8 +166,8 @@ function RenderProjects(htmlProjectsList) {
 /**
  * Переформатирует дату для присвоения в input.type='date'
  */
-function inputDateFormater(timeshtamp) {
-   let now = new Date(timeshtamp);
+function inputDateFormatter(timestamp) {
+   let now = new Date(timestamp);
    return now.getFullYear() + '-' +
       (now.getMonth() < 9 ? '0' + (now.getMonth() + 1) + '-' : (now.getMonth() + 1) + '-') +
       (now.getDate() < 10 ? '0' + now.getDate() : now.getDate());
